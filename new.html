@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 
 <html ng-app>
-
-<head>
-    <title>AngularJS Hello World</title>
-
-</head>
-<div>
-    A:
-    <input type="text" ng-model="a" />
-    <br />{{ a }}
-
-</div>
-
-<p></p>
-
-
-
-
 <script src="Scripts/angular.js"></script>
 
+<head>
+    <title>AngularJS</title>
+
+</head>
+
+<body ng-init="data={name:'James', isVisible: true, loggedIn: true}">
+    <div ng-cloak>
+
+        <div ng-switch on="data.loggedIn">
+            <div ng-switch-when="true">
+                Welcome {{data.name }}
+            </div>
+            <div ng-switch-default>Login</div>
+        </div>
+        <div ng-hide="isHidden">
+            Name:
+            <input type="text" ng-model="name" />
+            <br />{{ name }}
+
+        </div>
+
+        Hide:
+        <input type="checkbox" ng-model="isHidden">
+        <br />
+
+        <button ng-click="name='Shell'">Change Name</button>
+
+
+        <p></p>
+
+    </div>
+</body>
+
 </html>
+
+<!--
+
+ng-cloak
+ng-switch
+ng-class
+ng-show
+-->
